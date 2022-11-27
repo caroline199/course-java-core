@@ -13,9 +13,6 @@ class Task01 {
      * @param args entry arguments
      */
     public static void main(String[] args) {
-        //FIXME
-        // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
-        // аргументов. Типы данных изменять нельзя
         String fullName = "Nappie Lopez-gomez";
 
         String name = getName(fullName);
@@ -33,9 +30,9 @@ class Task01 {
      * @return имя сотрудника
      */
     static String getName(String fullName) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String[] arrayFullName = fullName.split(" ");
+
+        return arrayFullName[0];
     }
 
     /**
@@ -45,9 +42,9 @@ class Task01 {
      * @return фамилия сотрудника
      */
     static String getSurname(String fullName) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String[] arrayFullName = fullName.split(" ");
+
+        return arrayFullName[1];
     }
 
     /**
@@ -57,8 +54,8 @@ class Task01 {
      * @return полное имя сотрудника в обратном формате, т.е. '${surname} ${name}'
      */
     static String reverseFullName(String fullName) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String[] arrayFullName = fullName.split(" ");
+
+        return arrayFullName[1] + " " + arrayFullName[0];
     }
 }
