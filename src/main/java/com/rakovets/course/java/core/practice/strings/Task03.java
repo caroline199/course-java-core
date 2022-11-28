@@ -17,9 +17,6 @@ class Task03 extends StandardInputTask {
      * @param args entry arguments
      */
     public static void main(String[] args) {
-        //FIXME
-        // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
-        // аргументов. Типы данных изменять нельзя
         String informationAboutStuff = INPUT_SCANNER.nextLine();
 
         String[] names = parseToArrayName(informationAboutStuff);
@@ -37,8 +34,6 @@ class Task03 extends StandardInputTask {
      * @return массив имен персонала, где каждый элемент является именем одного сотрудника
      */
     static String[] parseToArrayName(String informationAboutStuff) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
         return null;
     }
 
@@ -49,9 +44,9 @@ class Task03 extends StandardInputTask {
      * @return массив фамилий персонала, где каждый элемент является фамилией одного сотрудника
      */
     static String[] parseToArraySurname(String informationAboutStuff) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        String[] arraySurname = informationAboutStuff.split(" ");
+
+        return arraySurname;
     }
 
     /**

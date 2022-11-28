@@ -1,6 +1,10 @@
 package com.rakovets.course.java.core.practice.strings;
 
+import java.sql.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Разработать программу для разбора (parsing) банковских отчетов.
@@ -15,11 +19,7 @@ class Task02 {
      * @param args entry arguments
      */
     public static void main(String[] args) {
-        //FIXME
-        // Ниже приведены значения присваиваемые переменным. Их можно изменять для проверки различных вариантов входных
-        // аргументов. Типы данных изменять нельзя
-        String bankReport = "Remaining 10$  12$ essentially 13$ unchanged.";
-
+        String bankReport = "typetypesetting 100$ -12$remaining the 1960s with -12$ the release -36$ of Letraset Lorem";
         double[] moneyFromReport = getArrayMoneyFromReport(bankReport);
         System.out.printf("Money from the report: %s\n", Arrays.toString(moneyFromReport));
         double sumMoneyFromReport = getSumMoneyFromReport(bankReport);
@@ -33,9 +33,20 @@ class Task02 {
      * @return список сумм
      */
     static double[] getArrayMoneyFromReport(String report) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return null;
+        int count = 1;
+        ArrayList<Double> list = new ArrayList<Double>();
+        Pattern pattern = Pattern.compile("[\\s-]\\d*[,.]??\\d+\\b(?=\\s*[$]\\s)");
+        Matcher matcher = pattern.matcher(report);
+
+        while (matcher.find()) {
+            list.add(Double.parseDouble(matcher.group().trim()));
+        }
+
+        double[] result = new double[list.size()];
+        for (int i = 0; i < list.size(); i++) {
+            result[i] = list.get(i);
+        }
+        return result;
     }
 
     /**
@@ -45,8 +56,14 @@ class Task02 {
      * @return общую сумму всех денег
      */
     static double getSumMoneyFromReport(String report) {
-        //TODO
-        // Код, решающий задачу пишем ниже, при этом используя параметры метода
-        return 0.0;
+        double sum = 0;
+        Pattern pattern = Pattern.compile("[\\s-]\\d*[,.]??\\d+\\b(?=\\s*[$]\\s)");
+        Matcher matcher = pattern.matcher(report);
+
+        while (matcher.find()) {
+            sum += Double.parseDouble(matcher.group().trim());
+        }
+
+        return sum;
     }
 }
